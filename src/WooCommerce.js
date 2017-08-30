@@ -8,14 +8,15 @@ const WooCommerceAPI = require('woocommerce-api')
   version: 'wc/v1'
 });
 
-class GetProducts {
-  static getProductsByCategory () {
-    return WooConn.getAsync('products?filter[limit]=200')
-      .then(response => {
-        // console.log(JSON.parse(response.toJSON().body))
-        return JSON.parse(response.toJSON().body).products
-      }).catch(err => { return err })
-  }
-}
+export default function GetProducts() {
 
-export default GetProducts
+  return WooConn.getAsync('products?filter[limit]=200')
+    .then(response => {
+      //console.log(JSON.parse(response.toJSON().body))
+      return JSON.parse(response.toJSON().body)
+    }).catch(err => {
+      return err
+    })
+
+}
+//export default GetProducts
