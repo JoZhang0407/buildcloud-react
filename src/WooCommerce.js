@@ -18,5 +18,9 @@ export default function GetProducts() {
       return err
     })
 
+<<<<<<< HEAD
 }
 //export default GetProducts
+=======
+export default GetProducts
+>>>>>>> dc05b0f720dcbf2029558a80a642309736c881be
