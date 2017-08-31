@@ -6,7 +6,7 @@ import logo from './logo.svg';
 import './App.css';
 import {
   Card, CardImg, CardText, CardBlock, CardLink,
-  CardTitle, CardSubtitle
+  CardTitle, CardSubtitle, Row, Col
 }
 from 'reactstrap';
 import {
@@ -14,7 +14,7 @@ import {
 }
 from 'reactstrap';
 import GetProducts from './WooCommerce.js';
-
+import { Badge } from 'reactstrap';
 const Allproducts = []
 
 
@@ -46,28 +46,31 @@ class App extends Component {
 
   renderList() {
 
-    GetProducts().then(
-      products => {
-        this.setState({
-          products: products
-        })
+    GetProducts().then(products => {this.setState({products: products})
       }
     )
 
     return this.state.products.map(product => {
-        return (<card className='card1'>
-                            <CardBlock>
-                                  <CardTitle key = {product.id}>
- {product.name}
+        return (<card key = {product.id} className='card1'>
+                            <CardBlock className='title'>
+                                  <CardTitle>
+                                      {product.name}
                                   </CardTitle>
                             </CardBlock>
-                              <img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=318%C3%97180&w=318&h=180" alt="Card" />
+                            <Row>
+                              <Col sm="6">
+                             <div class='img'>
+                              <img src={product.images[0].src} width='380px'/>
+                            </div>
+                          </Col>
+                          </Row>
                             <CardBlock>
                               <div>
+                              Price: ${product.price}
                               <Button color='secondary' onClick={this.handleClick}> Buy </Button>
                               </div>
                             </CardBlock>
-                        </card>)  })
+                </card>)  })
     }
 
     render() {

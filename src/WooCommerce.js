@@ -12,7 +12,7 @@ export default function GetProducts() {
 
   return WooConn.getAsync('products?filter[limit]=200')
     .then(response => {
-      //console.log(JSON.parse(response.toJSON().body))
+      console.log(JSON.parse(response.toJSON().body))
       return JSON.parse(response.toJSON().body)
     }).catch(err => {
       return err

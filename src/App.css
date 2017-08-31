@@ -26,22 +26,32 @@
   position: absolute;
   top:40px;
   right:0px;
-}
 
+}
+.title{
+  font-size: 20px;
+
+  height: 40px;
+
+}
 .card1{
   margin:20px;
   width: 30%;
   float: left;
+
   }
 .shopcart{
   position: fixed;
   right: 10px;
   top:30px;
-  
+
+}
+img{
+  margin-top:30px;
 }
 .cardblock{
   width: 300px;
   height: 500px;
 
-  
+
 }
