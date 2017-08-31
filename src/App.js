@@ -24,7 +24,9 @@ class App extends Component {
     this.toggle = this.toggle.bind(this);
     this.state = {
       collapse: false,
-      products: []
+      products: [],
+      orderproducts:[]
+
     };
   }
 
@@ -35,6 +37,12 @@ class App extends Component {
       collapse: !this.state.collapse
     });
   }
+
+  handleClick() {
+  this.setState({orderproducts:[]})
+  }
+
+
 
   renderList() {
 
@@ -47,47 +55,50 @@ class App extends Component {
     )
 
     return this.state.products.map(product => {
-        return ( < li key = {
-            product.id
-          } > {
-            product.name
-          } < /li>)
-        })
+        return (<card className='card1'>
+                            <CardBlock>
+                                  <CardTitle key = {product.id}>
+ {product.name}
+                                  </CardTitle>
+                            </CardBlock>
+                              <img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=318%C3%97180&w=318&h=180" alt="Card" />
+                            <CardBlock>
+                              <div>
+                              <Button color='secondary' onClick={this.handleClick}> Buy </Button>
+                              </div>
+                            </CardBlock>
+                        </card>)  })
     }
 
     render() {
 
-      return ( < div className = "App" >
-          < div className = "App-header" >
-          < img src = {
-            logo
-          }
-          className = "App-logo"
-          alt = "logo" / >
-          < h2 > Welcome to React < /h2>
+      return ( <div className = "App">
+                   <div className = "App-header">
+                    <img src = { logo } className = "App-logo" alt = "logo" />
+                      <h2> Welcome to React </h2>
+                        <div className = 'shopcart'>
+                          <Button className = 'shopcart' color = "primary"
+                                onClick = { this.toggle }
+                                style = {{ marginBottom: '1rem'}}> Toggle
+                           </Button>
 
-          < div className = 'shopcart' >
-          < Button className = 'shopcart'
-          color = "primary"
-          onClick = {
-            this.toggle
-          }
-          style = {
-            {
-              marginBottom: '1rem'
+                           <Collapse isOpen = {this.state.collapse}>
+                              <Card className='card'>
+                                  <CardBlock className = 'cardblock'>Hello
+                                  </CardBlock>
+                              </Card>
+                          </Collapse>
+                        </div>
+                   </div>
+
+
+                  <div>
+      {this.renderList()}
+                  </div>
+
+              </div>
+              )
             }
-          } > Toggle < /Button> < Collapse isOpen = {
-          this.state.collapse
-        } >
-        < Card >
-        < CardBlock className = 'cardblock' >
-        Anim pariatur cliche reprehenderit,
-        enim eiusmod high life accusamus terry richardson ad squid.Nihil anim keffiyeh helvetica,
-        craft beer labore wes anderson cred nesciunt sapiente ea proident. < /CardBlock> < /Card > < /Collapse> < /div > < /div>  < div > < ul > {
-      this.renderList()
-    } < /ul > < /div > < /div >
-  )
-}
-}
+          }
 
 export default App;
