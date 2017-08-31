@@ -58,9 +58,9 @@ class App extends Component {
                                   </CardTitle>
                             </CardBlock>
                             <Row>
-                              <Col sm="6">
+                              <Col md={4} mdOffset={4}>
                              <div class='img'>
-                              <img src={product.images[0].src} width='380px'/>
+                              <img src={product.images[0].src} width='300px'/>
                             </div>
                           </Col>
                           </Row>
@@ -77,8 +77,7 @@ class App extends Component {
 
       return ( <div className = "App">
                    <div className = "App-header">
-                    <img src = { logo } className = "App-logo" alt = "logo" />
-                      <h2> Welcome to React </h2>
+
                         <div className = 'shopcart'>
                           <Button className = 'shopcart' color = "primary"
                                 onClick = { this.toggle }
