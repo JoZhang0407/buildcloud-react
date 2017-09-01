@@ -1,14 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
-import {
-  Card, CardBlock,
-  CardTitle, Row, Col
-}
-from 'reactstrap';
-import {
-  Collapse, Button
-}
-from 'reactstrap';
+import {Card, CardBlock, CardTitle, Row, Col } from 'reactstrap';
+import {Collapse, Button} from 'reactstrap';
 import GetProducts from './WooCommerce.js';
 const Allproducts = []
 
@@ -20,9 +13,7 @@ class App extends Component {
     this.state = {
       collapse: false,
       products: [],
-      orderproducts:0,
-
-
+      orderproducts:[],
     };
   }
 
@@ -49,10 +40,10 @@ getSelectedProduct(){
 
   if(orders != null ){
     this.state.products.map(product => {product =>{
-      if(product.id === order)}
+      if(product.id === order){}
     })
   }
-
+}
 
   //let k=0
   for(let i=0, i<orders.length , i++){
