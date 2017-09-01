@@ -2,16 +2,12 @@
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
-}
 
 .App-header {
   background-color: #222;
-  height: 150px;
+  height: 100px;
   padding: 20px;
-  color: white;
+
 }
 
 .App-intro {
@@ -42,6 +38,22 @@
   float: left;
 
   }
+.productBlock{
+  width: 300px;
+  border:1px solid black;
+
+ align-items: center;
+}
+
+  .price{
+    width: 100px;
+    height: 40px;
+    border: 1px solid black;
+     display: inline-block;
+     vertical-align: middle;
+     line-height: 40px;
+
+  }
 .shopcart{
   position: fixed;
   right: 10px;
@@ -57,5 +69,6 @@ img{
   width: 300px;
   height: 500px;
   z-index: 999;
-
+ color: black;
+ font-size: 30px;
 }

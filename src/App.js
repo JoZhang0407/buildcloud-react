@@ -1,12 +1,8 @@
-import React, {
-  Component
-}
-from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react';
 import './App.css';
 import {
-  Card, CardImg, CardText, CardBlock, CardLink,
-  CardTitle, CardSubtitle, Row, Col
+  Card, CardBlock,
+  CardTitle, Row, Col
 }
 from 'reactstrap';
 import {
@@ -14,8 +10,7 @@ import {
 }
 from 'reactstrap';
 import GetProducts from './WooCommerce.js';
-import { Badge } from 'reactstrap';
-const Allproducts = []
+//const Allproducts = []
 
 
 class App extends Component {
@@ -25,7 +20,8 @@ class App extends Component {
     this.state = {
       collapse: false,
       products: [],
-      orderproducts:[]
+      orderproducts:0,
+
 
     };
   }
@@ -40,7 +36,40 @@ class App extends Component {
 
   handleClick() {
   this.setState({orderproducts:[]})
+
+  let nextVal = this.state.orderproducts + 1;
+
+      this.setState({orderproducts: [{productid, quantity}, {}] });
+
+
   }
+
+getSelectedProduct(){
+  const orders = this.getState({orderproducts})
+
+  if(orders != null ){
+    this.state.products.map(product => {product =>{
+      if(product.id === order)}
+    })
+  }
+  let i =0
+  let j=0
+  //let k=0
+  for(i, i<orders.length , i++){
+    for (j,j<products,j++){
+      //for(k, k<){
+      if orders[i].id === products[j].id
+      return products[j]
+    //}
+    }
+  }
+}
+
+  getState(callback) {
+    this.setState((prevState) => {
+      callback(prevState);
+    });
+ }
 
 
 
@@ -57,19 +86,23 @@ class App extends Component {
                                       {product.name}
                                   </CardTitle>
                             </CardBlock>
+                        <div className='productBlock'>
                             <Row>
                               <Col md={4} mdOffset={4}>
                              <div class='img'>
-                              <img src={product.images[0].src} width='300px'/>
+                              <img src={product.images[0].src} width='300px' alt='productImg' />
                             </div>
                           </Col>
                           </Row>
                             <CardBlock>
-                              <div>
-                              Price: ${product.price}
-                              <Button color='secondary' onClick={this.handleClick}> Buy </Button>
-                              </div>
+                            <div>
+                              <span className='price'>  Price: ${product.price} </span> &nbsp;&nbsp;&nbsp;&nbsp;
+                              <span>
+                                <Button color='secondary' onClick={this.handleClick.bind(this)}> Buy </Button>
+                              </span>
+                            </div>
                             </CardBlock>
+                        </div>
                 </card>)  })
     }
 
@@ -81,12 +114,16 @@ class App extends Component {
                         <div className = 'shopcart'>
                           <Button className = 'shopcart' color = "primary"
                                 onClick = { this.toggle }
-                                style = {{ marginBottom: '1rem'}}> Toggle
+                                style = {{ marginBottom: '1rem'}}> Shop Cart
                            </Button>
 
                            <Collapse isOpen = {this.state.collapse}>
                               <Card className='card'>
-                                  <CardBlock className = 'cardblock'>Hello
+                                  <CardBlock className = 'cardblock'>
+
+
+                                    {this.getSelectedProduct()}
+
                                   </CardBlock>
                               </Card>
                           </Collapse>
