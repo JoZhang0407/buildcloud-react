@@ -10,7 +10,7 @@ import {
 }
 from 'reactstrap';
 import GetProducts from './WooCommerce.js';
-//const Allproducts = []
+const Allproducts = []
 
 
 class App extends Component {
@@ -52,11 +52,11 @@ getSelectedProduct(){
       if(product.id === order)}
     })
   }
-  let i =0
-  let j=0
+
+
   //let k=0
-  for(i, i<orders.length , i++){
-    for (j,j<products,j++){
+  for(let i=0, i<orders.length , i++){
+    for (let j=0,j<products,j++){
       //for(k, k<){
       if orders[i].id === products[j].id
       return products[j]
