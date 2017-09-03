@@ -41,20 +41,21 @@ getSelectedProduct(){
   if(orders != null ){
     this.state.products.map(product => {product =>{
       if(product.id === order){}
-    })
+    }})
   }
 }
 
-  //let k=0
-  for(let i=0, i<orders.length , i++){
-    for (let j=0,j<products,j++){
-      //for(k, k<){
-      if orders[i].id === products[j].id
-      return products[j]
-    //}
+
+  for(i=0 i<orders.length; i++){
+    for( j=0; j<products.length; j++){
+      if orders[i].id===products[j].id
+      {
+        return products[j];
+      }
     }
   }
-}
+
+
 
   getState(callback) {
     this.setState((prevState) => {
