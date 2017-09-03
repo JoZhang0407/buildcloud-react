@@ -45,9 +45,11 @@ getSelectedProduct(){
   }
 }
 
+let i=0
+let j=0
 
-  for(i=0 i<orders.length; i++){
-    for( j=0; j<products.length; j++){
+  for(i; i < orders.length; i++){
+    for(j; j< products; j++){
       if orders[i].id===products[j].id
       {
         return products[j];
@@ -95,7 +97,8 @@ getSelectedProduct(){
                             </div>
                             </CardBlock>
                         </div>
-                </card>)  })
+                </card>
+              )}
     }
 
     render() {
@@ -130,6 +133,6 @@ getSelectedProduct(){
               </div>
               )
             }
-          }
+}
 
 export default App;
